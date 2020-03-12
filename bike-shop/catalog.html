@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="fonts/Roboto-Regular.woff2" rel="preload" as="font" crossorigin="anonymous">
+  <link href="fonts/HaginCapsMedium.woff2" rel="preload" as="font" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>Bike Shop Catalog</title>
+</head>
+<body class="body-container">
+  <header class="page-header page-header--not-main">
+    <div class="page-header__container">
+      <button class="page-header__menu-button" aria-label="Кнопка меню"></button>
+      <div class="page-header__logo">
+        <a href="index.html" aria-label="Главная страница">
+          <picture>
+            <source media="(min-width: 768px)" srcset="img/logo-desktop-dark@2x.png">
+              <img src="img/logo-mobile@2x.png" alt="Логотип Bike Shop">
+          </picture>
+        </a>
+      </div>
+      <div class="page-header__nav-container">
+        <div class="page-header__nav nav nav--no-js">
+          <div class="nav__user">
+            <button class="nav__button-close" aria-label="Выход из меню"></button>
+            <a href="#" class="nav__user-link">Михаил Иванов</a>
+            <button class="nav__button-exit" aria-label="Выход из профиля"></button>
+          </div>
+          <ul class="nav__list">
+            <li class="nav__item nav__item--active"><a href="#">Велосипеды</a></li>
+            <li class="nav__item"><a href="#">Аксессуары</a></li>
+            <li class="nav__item"><a href="#">Запчасти</a></li>
+            <li class="nav__item"><a href="#">Мастерская</a></li>
+            <li class="nav__item"><a href="#">Доставка и оплата</a></li>
+            <li class="nav__item"><a href="#">Контакты</a></li>
+            <li class="nav__item nav__item--basket"><a href="#">Корзина (1)</a></li>
+            <li class="nav__item nav__item--search"><a href="#">Поиск</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-header__user-block">
+        <ul class="page-header__user-block-list">
+          <li class="page-header__user-block-item page-header__user-block-item--user"><a href="#" aria-label="Авторизация"></a></li>
+          <li class="page-header__user-block-item page-header__user-block-item--search"><a href="#" aria-label="Поиск"></a></li>
+          <li class="page-header__user-block-item page-header__user-block-item--basket"><a href="#" aria-label="Корзина"></a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <main class="page-catalog">
+    <h1 class="visually-hidden">Каталог велосипедов Bike Shop</h1>
+    <section class="toolbar">
+      <h2 class="visually-hidden">Панель сортировки результатов</h2>
+      <div class="toolbar__container">
+        <ul class="toolbar__list">
+          <li class="toolbar__item toolbar__item--reset-filters">
+            <button class="toolbar__item-link toolbar__item-link--desktop" type="reset" form="filters">Сбросить фильтры</button>
+            <button class="toolbar__item-link toolbar__item-link--mob" type="reset" form="filters">Фильтры (3)</button>
+          </li>
+          <li class="toolbar__item toolbar__item--sorting">
+            <label class="visually-hidden" for="sorting">Сортировка</label><select name="sorting" id="sorting">
+              <option value="popular">По популярности</option>
+              <option value="price">По цене</option>
+            </select>
+          </li>
+          <li class="toolbar__item toolbar__item--showing">
+            <div class="toolbar__amount-list-contaner">
+              <span>Показывать по</span>
+              <ul class="toolbar__amount-list">
+                <li class="toolbar__amount-item"><a href="#">12</a></li>
+                <li class="toolbar__amount-item"><a href="#">24</a></li>
+                <li class="toolbar__amount-item"><a href="#">Все</a></li>
+              </ul>
+            </div>
+            <ul class="toolbar__showing-type-list">
+              <li class="toolbar__showing-type-item"><a href="#" class="toolbar__showing-type-link toolbar__showing-type-link--table" aria-label="Плитка"></a></li>
+              <li class="toolbar__showing-type-item"><a href="#" class="toolbar__showing-type-link toolbar__showing-type-link--list" aria-label="Список"></a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="catalog catalog--no-js">
+      <h2 class="visually-hidden">Велосипеды</h2>
+      <div class="catalog__container">
+        <div class="catalog__sidebar-container">
+          <div class="catalog__sidebar sidebar">
+            <div class="sidebar__filters-reset">
+              <div class="sidebar__filters-wrapper">
+                <button form="filters">Сбросить фильтры (3)</button>
+                <button class="sidebar__close-button" aria-label="Закрытие сайдбара"></button>
+              </div>
+            </div>
+            <div class="sidebar__select-block">
+              <label class="visually-hidden" for="sorting-mob">Сортировка</label><select name="sorting" id="sorting-mob">
+                <option value="popular">По популярности</option>
+                <option value="price">По цене</option>
+              </select>
+            </div>
+            <form action="#" method="get" id="filters">
+              <fieldset class="price-scale">
+                <div class="price-scale__text">
+                  <input type="number" placeholder="28 000" name="lowest-price" id="lowest-price"><label class="visually-hidden" for="lowest-price">Цена от</label>
+                  <span>&mdash;</span>
+                  <input type="number" placeholder="180 000" name="highest-price" id="highest-price"><label class="visually-hidden" for="highest-price">Цена до</label>
+                </div>
+                <div class="price-scale__wrapper">
+                  <div class="price-scale__bar"></div>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>
+                    <button class="sidebar__legend-button">Электровелосипед</button>
+                </legend>
+                <div class="sidebar__input-wrapper">
+                  <input type="radio" name="electrobike" id="electrobike-yes"><label for="electrobike-yes">Да</label>
+                  <input type="radio" name="electrobike" id="electrobike-no"><label for="electrobike-no">Нет</label>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>
+                  <button class="sidebar__legend-button">Производитель</button>
+                </legend>
+                <div class="sidebar__input-wrapper">
+                  <input type="checkbox" name="harley" id="harley"><label for="harley">Harley Davidson</label>
+                  <input type="checkbox" name="neuzer" id="neuzer"><label for="neuzer">Neuzer</label>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>
+                  <button class="sidebar__legend-button">Материал рамы</button>
+                </legend>
+                <div class="sidebar__input-wrapper">
+                  <input type="checkbox" name="steel" id="steel"><label for="steel">Сталь</label>
+                  <input type="checkbox" name="carbon" id="carbon"><label for="carbon">Карбон</label>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>
+                    <button class="sidebar__legend-button">Цвет</button>
+                </legend>
+                <div class="sidebar__input-wrapper">
+                  <input type="checkbox" name="black" id="black"><label for="black">Черный</label>
+                  <input type="checkbox" name="brown" id="brown"><label for="brown">Коричневый</label>
+                  <input type="checkbox" name="red" id="red"><label for="red">Красный</label>
+                  <input type="checkbox" name="blue" id="blue"><label for="blue">Голубой</label>
+                  <input type="checkbox" name="khaki" id="khaki"><label for="khaki">Хаки</label>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>
+                  <button class="sidebar__legend-button">Размер</button>
+                </legend>
+                <div class="sidebar__input-wrapper">
+                  <input type="checkbox" name="standart-size" id="standart-size"><label for="standart-size">Стандарт</label>
+                  <input type="checkbox" name="king-size" id="king-size"><label for="king-size">King-size</label>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>
+                  <button class="sidebar__legend-button">Колеса</button>
+                </legend>
+                <div class="sidebar__input-wrapper">
+                  <input type="checkbox" name="20-inch" id="20-inch"><label for="20-inch">20"</label>
+                  <input type="checkbox" name="22-inch" id="22-inch"><label for="22-inch">22"</label>
+                  <input type="checkbox" name="24-inch" id="24-inch"><label for="24-inch">24"</label>
+                  <input type="checkbox" name="26-inch" id="26-inch"><label for="26-inch">26"</label>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>
+                  <button class="sidebar__legend-button">Кол-во скоростей</button>
+                </legend>
+                <div class="sidebar__input-wrapper">
+                  <input type="checkbox" name="4-speed" id="4-speed"><label for="4-speed">4</label>
+                  <input type="checkbox" name="5-speed" id="5-speed"><label for="5-speed">5</label>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <div class="catalog__block slider-block slider-block--catalog">
+          <ul class="slider-block__list">
+            <!-- данный  элемент скопировать необходимое количество раз -->
+            <li class="slider-block__item">
+              <div class="slider-block__wrapper">
+                <div class="slider-block__photo-frame">
+                  <a class="slider-block__basket" href="#" aria-label="Добавить в корзину"></a>
+                  <a class="slider-block__compare" href="#" aria-label="Добавить в сравнение"></a>
+                </div>
+                <img src="img/neuzer@1x.png" width="283" alt="Фото байка">
+              </div>
+              <div class="slider-block__goods-description">
+                <h3>NEUZER Chopper Apocalypse</h3>
+                <p>24”, сталь Hi-Ten Венгрия</p>
+                <p class="slider-block__goods-price">75 000 Р</p>
+              </div>
+            </li>
+            <li class="slider-block__item">
+              <div class="slider-block__wrapper">
+                <div class="slider-block__photo-frame">
+                  <a class="slider-block__basket" href="#" aria-label="Добавить в корзину"></a>
+                  <a class="slider-block__compare" href="#" aria-label="Добавить в сравнение"></a>
+                </div>
+                <img src="img/schwinn@1x.png" width="262" alt="Фото байка">
+              </div>
+              <div class="slider-block__goods-description">
+                <h3>Schwinn Stingray OCC</h3>
+                <p>20”+24”, сталь США</p>
+                <p class="slider-block__goods-price">34 000 Р</p>
+              </div>
+            </li>
+            <li class="slider-block__item">
+              <div class="slider-block__wrapper">
+                <div class="slider-block__photo-frame">
+                  <a class="slider-block__basket" href="#" aria-label="Добавить в корзину"></a>
+                  <a class="slider-block__compare" href="#" aria-label="Добавить в сравнение"></a>
+                </div>
+                <img src="img/harley@1x.png" width="266" alt="Фото байка">
+              </div>
+              <div class="slider-block__goods-description">
+                <h3>	Harley Davidson</h3>
+                <p>20”, сталь Китай</p>
+                <p class="slider-block__goods-price">23 000 Р</p>
+              </div>
+            </li>
+            <!-- отсечка -->
+            <li class="slider-block__item">
+              <div class="slider-block__wrapper">
+                <div class="slider-block__photo-frame">
+                  <a class="slider-block__basket" href="#" aria-label="Добавить в корзину"></a>
+                  <a class="slider-block__compare" href="#" aria-label="Добавить в сравнение"></a>
+                </div>
+                <img src="img/misargi@1x.png" width="319" alt="Фото байка">
+              </div>
+              <div class="slider-block__goods-description">
+                <h3>Micargi Cyclone Electric</h3>
+                <p>26”, 500W, 5 скоростей, сталь США</p>
+                <p class="slider-block__goods-price">154 000 Р</p>
+              </div>
+            </li>
+            <li class="slider-block__item">
+              <div class="slider-block__wrapper">
+                <div class="slider-block__photo-frame">
+                  <a class="slider-block__basket" href="#" aria-label="Добавить в корзину"></a>
+                  <a class="slider-block__compare" href="#" aria-label="Добавить в сравнение"></a>
+                </div>
+                <img src="img/x-front@1x.png" width="286" alt="Фото байка">
+              </div>
+              <div class="slider-block__goods-description">
+                <h3>X-Front Snowmobile</h3>
+                <p>24”, сталь Китай</p>
+                <p class="slider-block__goods-price">42 000 Р</p>
+              </div>
+            </li>
+            <li class="slider-block__item">
+              <div class="slider-block__wrapper">
+                <div class="slider-block__photo-frame">
+                  <a class="slider-block__basket" href="#" aria-label="Добавить в корзину"></a>
+                  <a class="slider-block__compare" href="#" aria-label="Добавить в сравнение"></a>
+                </div>
+                <img src="img/2fast4you@1x.png" width="301" alt="Фото байка">
+              </div>
+              <div class="slider-block__goods-description">
+                <h3>2Fast4You Chopper</h3>
+                <p>24”, сталь Венгрия</p>
+                <p class="slider-block__goods-price">38 000 Р</p>
+              </div>
+            </li>
+            <li class="slider-block__item">
+              <div class="slider-block__wrapper">
+                <div class="slider-block__photo-frame">
+                  <a class="slider-block__basket" href="#" aria-label="Добавить в корзину"></a>
+                  <a class="slider-block__compare" href="#" aria-label="Добавить в сравнение"></a>
+                </div>
+                <img src="img/neuzer@1x.png" width="283" alt="Фото байка">
+              </div>
+              <div class="slider-block__goods-description">
+                <h3>NEUZER Chopper Apocalypse</h3>
+                <p>24”, сталь Hi-Ten Венгрия</p>
+                <p class="slider-block__goods-price">75 000 Р</p>
+              </div>
+            </li>
+            <li class="slider-block__item">
+              <div class="slider-block__wrapper">
+                <div class="slider-block__photo-frame">
+                  <a class="slider-block__basket" href="#" aria-label="Добавить в корзину"></a>
+                  <a class="slider-block__compare" href="#" aria-label="Добавить в сравнение"></a>
+                </div>
+                <img src="img/schwinn@1x.png" width="262" alt="Фото байка">
+              </div>
+              <div class="slider-block__goods-description">
+                <h3>Schwinn Stingray OCC</h3>
+                <p>20”+24”, сталь США</p>
+                <p class="slider-block__goods-price">34 000 Р</p>
+              </div>
+            </li>
+            <li class="slider-block__item">
+              <div class="slider-block__wrapper">
+                <div class="slider-block__photo-frame">
+                  <a class="slider-block__basket" href="#" aria-label="Добавить в корзину"></a>
+                  <a class="slider-block__compare" href="#" aria-label="Добавить в сравнение"></a>
+                </div>
+                <img src="img/harley@1x.png" width="266" alt="Фото байка">
+              </div>
+              <div class="slider-block__goods-description">
+                <h3>	Harley Davidson</h3>
+                <p>20”, сталь Китай</p>
+                <p class="slider-block__goods-price">23 000 Р</p>
+              </div>
+            </li>
+            <!-- отсечка -->
+            <li class="slider-block__item">
+              <div class="slider-block__wrapper">
+                <div class="slider-block__photo-frame">
+                  <a class="slider-block__basket" href="#" aria-label="Добавить в корзину"></a>
+                  <a class="slider-block__compare" href="#" aria-label="Добавить в сравнение"></a>
+                </div>
+                <img src="img/misargi@1x.png" width="319" alt="Фото байка">
+              </div>
+              <div class="slider-block__goods-description">
+                <h3>Micargi Cyclone Electric</h3>
+                <p>26”, 500W, 5 скоростей, сталь США</p>
+                <p class="slider-block__goods-price">154 000 Р</p>
+              </div>
+            </li>
+            <li class="slider-block__item">
+              <div class="slider-block__wrapper">
+                <div class="slider-block__photo-frame">
+                  <a class="slider-block__basket" href="#" aria-label="Добавить в корзину"></a>
+                  <a class="slider-block__compare" href="#" aria-label="Добавить в сравнение"></a>
+                </div>
+                <img src="img/x-front@1x.png" width="286" alt="Фото байка">
+              </div>
+              <div class="slider-block__goods-description">
+                <h3>X-Front Snowmobile</h3>
+                <p>24”, сталь Китай</p>
+                <p class="slider-block__goods-price">42 000 Р</p>
+              </div>
+            </li>
+            <li class="slider-block__item">
+              <div class="slider-block__wrapper">
+                <div class="slider-block__photo-frame">
+                  <a class="slider-block__basket" href="#" aria-label="Добавить в корзину"></a>
+                  <a class="slider-block__compare" href="#" aria-label="Добавить в сравнение"></a>
+                </div>
+                <img src="img/2fast4you@1x.png" width="301" alt="Фото байка">
+              </div>
+              <div class="slider-block__goods-description">
+                <h3>2Fast4You Chopper</h3>
+                <p>24”, сталь Венгрия</p>
+                <p class="slider-block__goods-price">38 000 Р</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <div class="pages">
+      <div class="pages__container">
+        <div class="pages__link-block">
+          <a class="pages__link pages__link--disable pages__link--prev" href="#" aria-label="Переход на другую страницу"></a>
+          <a class="pages__link pages__link--active" href="#" aria-label="Переход на другую страницу">1</a>
+          <a class="pages__link" href="#" aria-label="Переход на другую страницу">2</a>
+          <a class="pages__link" href="#" aria-label="Переход на другую страницу">3</a>
+          <span>...</span>
+          <a class="pages__link pages__link--mob" href="#" aria-label="Переход на другую страницу">24</a>
+          <a class="pages__link pages__link--mob" href="#" aria-label="Переход на другую страницу">25</a>
+          <a class="pages__link" href="#" aria-label="Переход на другую страницу">26</a>
+          <a class="pages__link pages__link--next" href="#" aria-label="Переход на другую страницу"></a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="page-footer page-footer--not-main">
+    <div class="page-footer__container">
+      <div class="page-footer__nav nav">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="catalog.html">Велосипеды</a></li>
+          <li class="nav__item"><a href="#">Аксессуары</a></li>
+          <li class="nav__item"><a href="#">Запчасти</a></li>
+          <li class="nav__item"><a href="#">Мастерская</a></li>
+          <li class="nav__item"><a href="#">Тест-драйв</a></li>
+          <li class="nav__item"><a href="#">Доставка и оплата</a></li>
+          <li class="nav__item"><a href="#">Рассрочка</a></li>
+          <li class="nav__item"><a href="#">Вступление в клуб</a></li>
+        </ul>
+      </div>
+      <div class="page-footer__wrapper">
+        <div class="page-footer__social social-block social-block">
+          <ul class="social-block__list social-block__list--light-dark">
+            <li class="social-block__item social-block__item--vk"><a href="#" aria-label="В контакте"></a></li>
+            <li class="social-block__item social-block__item--facebook"><a href="#" aria-label="Facebook"></a></li>
+            <li class="social-block__item social-block__item--instagram"><a href="#" aria-label="Instagram"></a></li>
+          </ul>
+        </div>
+        <div class="page-footer__logo">
+          <a href="index.html" aria-label="Главная страница">
+            <picture>
+              <source media="(min-width: 768px)" srcset="img/logo-desktop-dark@2x.png">
+                <img src="img/logo-mobile@2x.png" alt="Логотип Bike Shop">
+            </picture>
+          </a>
+        </div>
+        <div class="page-footer__confidence">
+          <p>
+            <span class="page-footer__confidence-desktop">&copy;2018   |   </span><a href="#">Политика конфиденциальности</a>
+          </p>
+          <p class="page-footer__confidence-mobile">&copy;2018</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
