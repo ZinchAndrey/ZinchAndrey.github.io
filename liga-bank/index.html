@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Liga bank</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link href="fonts/Roboto-Regular.woff2" rel="preload" as="font" crossorigin="anonymous">
+    <link href="fonts/Roboto-Medium.woff2" rel="preload" as="font" crossorigin="anonymous">
+    <link href="fonts/Roboto-Bold.woff2" rel="preload" as="font" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="page-header__container  container--header">
+        <a href="#" class="page-header__logo">
+          <img src="img/logo@2x.svg" alt="Логотип" width="155">
+        </a>
+        <ul class="page-header__nav nav">
+          <li class="nav__item"><a href="#">Услуги</a></li>
+          <li class="nav__item"><a href="#">Рассчитать кредит</a></li>
+          <li class="nav__item"><a href="#">Контакты</a></li>
+          <li class="nav__item"><a href="#">Задать вопрос</a></li>
+        </ul>
+        <button class="page-header__login">Войти в Интернет-банк</button>
+      </div>
+    </header>
+    <main>
+      <section class="promo-slider">
+        <h1 class="visually-hidden">Лига Банк</h1>
+      </section>
+      <section class="credit">
+        <div class="credit__container container">
+          <h2>Кредитный калькулятор</h2>
+          <form class="credit__form" action="#" method="post" id="credit-form">
+            <div class="credit__form-wrapper">
+              <fieldset class="credit__goal">
+                <h3>Шаг 1. Цель кредита</h3>
+                <select class="visually-hidden credit__hidden-select" name="goal" id="goal" aria-label="Выберите цель кредита">
+                  <option value="hypothec">Ипотечное кредитование</option>
+                  <option value="autocredit">Автомобильное кредитование</option>
+                  <option value="consumer">Потребительский кредит</option>
+                </select>
+                <div class="credit__select-block" id="credit__select-block">
+                  <p class="credit__select-active credit__select-active--closed">Выберите цель кредита</p>
+                  <ul class="credit__select-list credit__select-list--closed" tabindex="0" data-value="test">
+                    <li class="credit__select-item" data-value="hypothec">Ипотечное кредитование</li>
+                    <li class="credit__select-item" data-value="autocredit">Автомобильное кредитование</li>
+                    <li class="credit__select-item" data-value="consumer">Потребительский кредит</li>
+                  </ul>
+                </div>
+              </fieldset>
+              <fieldset class="credit__parameters closed">
+                <h3>Шаг 2. Введите параметры кредита</h3>
+                <label for="credit__value" id="credit-label">Стоимость недвижимости</label>
+                <div class="credit__value-block">
+                  <div class="credit__value-wrapper">
+                    <button class="credit__value-button credit__value-button--minus" type="button" aria-label="Кнопка минус"></button>
+                    <input class="money" type="text" id="credit__value" placeholder="2 000 000 рублей" value="2000000">
+                    <button class="credit__value-button credit__value-button--plus" type="button" aria-label="Кнопка плюс"></button>
+                    <span class="credit__error-text credit__error-text--closed">Введите значение в указанных пределах</span>
+                  </div>
+                  <span id="credit-limits-label">От 1 200 000 до 25 000 000 рублей</span>
+                </div>
+                <div class="credit__first-payment-block">
+                  <label for="credit__first-payment-input">Первоначальный взнос</label>
+                  <input type="text" id="credit__first-payment-input" placeholder="200 000 рублей" value="200000">
+                  <div class="credit__first-payment-slider">
+                    <input id="credit__first-payment-slider-input" type="range" min="10" max="100" step="5" value="10">
+                    <span class="credit__first-payment-percent" id="credit__first-payment-percent">10%</span>
+                  </div>
+                  </div>
+                <div class="credit__time-block">
+                  <label for="credit__time-input">Срок кредитования</label>
+                  <input type="text" id="credit__time-input" placeholder="5 лет" value="5">
+                  <div class="credit__time-slider">
+                    <input id="credit__time-slider-input" type="range" min="5" max="30" step="1" value="5">
+                    <span class="credit__time-text" id="credit__time-text">5 лет</span>
+                  </div>
+                </div>
+                <div class="credit__checkbox credit__checkbox--mother-capital">
+                  <input class="visually-hidden" type="checkbox" id="credit__mother-capital">
+                  <label for="credit__mother-capital">Использовать материнский капитал</label>
+                </div>
+                <div class="credit__checkbox credit__checkbox--casco">
+                  <input class="visually-hidden" type="checkbox" id="credit__casco">
+                  <label for="credit__casco">Оформить КАСКО в нашем банке</label>
+                </div>
+                <div class="credit__checkbox credit__checkbox--insurance">
+                  <input class="visually-hidden" type="checkbox" id="credit__insurance">
+                  <label for="credit__insurance">Оформить cтрахование жизни в нашем банке</label>
+                </div>
+                <div class="credit__checkbox credit__checkbox--salary">
+                  <input class="visually-hidden" type="checkbox" id="credit__salary">
+                  <label for="credit__salary">Участник зарплатного проекта нашего банка</label>
+                </div>
+              </fieldset>
+            </div>
+            <fieldset class="credit__offer closed">
+              <div class="credit__offer-container">
+                <h3>Наше предложение</h3>
+                <ul class="credit__offer-list">
+                  <li class="credit__offer-item">
+                    <p class="credit__offer-value" id="offer-credit-value">1 330 000 рублей</p>
+                    <p class="credit__offer-label">Сумма ипотеки</p>
+                  </li>
+                  <li class="credit__offer-item">
+                    <p class="credit__offer-value" id="percent-rate">9,40%</p>
+                    <p class="credit__offer-label">Процентная ставка</p>
+                  </li>
+                  <li class="credit__offer-item">
+                    <p class="credit__offer-value" id="month-payment">27 868 рублей</p>
+                    <p class="credit__offer-label">Ежемесячный платеж</p>
+                  </li>
+                  <li class="credit__offer-item">
+                    <p class="credit__offer-value" id="required-profit">61 929 рублей</p>
+                    <p class="credit__offer-label">Необходимый доход</p>
+                  </li>
+                </ul>
+                <button class="credit__offer-button button" type="submit">Оформить заявку</button>
+              </div>
+            </fieldset>
+            <div class="credit__error closed">
+              <h3 class="credit__error-header">Наш банк не выдает ипотечные кредиты меньше 200 000 рублей </h3>
+              <p>Попробуйте использовать другие параметры для расчета</p>
+            </div>
+          </form>
+          <form class="credit__final-form final-form final-form--closed" action="#" method="post">
+            <h3>Шаг 3. Оформление заявки</h3>
+            <ul class="final-form__list">
+              <li class="final-form__item">
+                <span class="final-form__label">Номер заявки</span>
+                <span class="final-form__value" id="credit-request-number">№ 0010</span>
+              </li>
+              <li class="final-form__item">
+                <span class="final-form__label">Цель кредита</span>
+                <span class="final-form__value" id="final-form__credit-type">Ипотека</span>
+              </li>
+              <li class="final-form__item">
+                <span class="final-form__label" id="final-form__credit-label">Стоимость недвижимости</span>
+                <span class="final-form__value" id="final-form__credit-value">2 000 000 рублей</span>
+              </li>
+              <li class="final-form__item final-form__item--first-payment">
+                <span class="final-form__label">Первоначальный взнос</span>
+                <span class="final-form__value" id="final-form__first-payment">200 000 рублей</span>
+              </li>
+              <li class="final-form__item">
+                <span class="final-form__label">Срок кредитования</span>
+                <span class="final-form__value" id="final-form__credit-time">5 лет</span>
+              </li>
+            </ul>
+            <div class="final-form__input-wrapper">
+              <input class="final-form__name" name="username" type="text" placeholder="ФИО" required="">
+              <input class="final-form__tel" name="phone" type="tel" placeholder="Телефон" required="">
+              <input class="final-form__email" name="mail" type="email" placeholder="E-mail" required="">
+              <button class="final-form__button button" type="submit">Отправить</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section class="popup popup--closed" id="popup">
+        <div class="popup__container">
+          <button class="popup__close-button"></button>
+          <h3>Спасибо за обращение в наш банк</h3>
+          <p>Наш менеджер скоро свяжется с вами по указанному номеру телефона.</p>
+        </div>
+      </section>
+    </main>
+    <footer class="page-footer">
+      <div class="page-footer__container container container--footer">
+        <div class="page-footer__logo-block">
+          <a href="#" class="page-header__logo">
+            <img src="img/logo@2x.svg" alt="Логотип" width="155">
+          </a>
+          <p>
+            150015, г. Москва, ул. Московская, д. 32 Генеральная лицензия Банка
+            России №1050 Ⓒ Лига Банк, 2019
+          </p>
+        </div>
+        <ul class="page-footer__nav nav nav--footer">
+          <li class="nav__item"><a href="#">Услуги</a></li>
+          <li class="nav__item"><a href="#">Рассчитать кредит</a></li>
+          <li class="nav__item"><a href="#">Контакты</a></li>
+          <li class="nav__item"><a href="#">Задать вопрос</a></li>
+        </ul>
+        <p class="page-footer__phone page-footer__phone--mob">
+          <a href="tel:0904">*0904</a>
+          Бесплатно для абонентов МТС, Билайн, Мегафон, Теле2
+        </p>
+        <p class="page-footer__phone page-footer__phone--city">
+          <a href="tel:88001112233">8 800 111 22 33</a>
+          Бесплатный для всех городов России
+        </p>
+        <ul class="page-header__social social">
+          <li class="social__item social__item--fb">
+            <a href="#" aria-label="facebook"></a>
+          </li>
+          <li class="social__item social__item--inst">
+            <a href="#" aria-label="instagram"></a>
+          </li>
+          <li class="social__item social__item--tw">
+            <a href="#" aria-label="twitter"></a>
+          </li>
+          <li class="social__item social__item--youtube">
+            <a href="#" aria-label="youtube"></a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <!-- <script src="js/inputmask.min.js"></script> -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery.mask.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
