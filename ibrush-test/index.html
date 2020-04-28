@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>iBrush</title>
+</head>
+
+<body>
+  <main>
+    <section class="article">
+      <div class="article__container container">
+        <div class="article__header-wrapper">
+          <h1>Путь JavaScript</h1>
+        </div>
+        <figure>
+          <p class="article__figcaption article__figcaption--mobile">Можно выделить три основных направления для
+            прогресса JavaScript Middle</p>
+          <div class="article__image">
+            <div class="article__date">
+              <span class="article__date-day">12</span>
+              <span class="article__date-month">апреля</span>
+            </div>
+            <img src="img/books-1.jpg" alt="Изображение к статье - книги" width="738">
+          </div>
+          <figcaption class="article__figcaption article__figcaption--desktop">Можно выделить три основных направления
+            для прогресса JavaScript </figcaption>
+        </figure>
+        <div class="article__main">
+          <h2>Серверный JavaScript</h2>
+          <blockquote>
+            <p>
+              Разработчики и клиенты часто неправильно понимают, что такое система. Они видят графический интерфейс и
+              думают, что он и есть система. Они определяют систему в терминах графического интерфейса и считают, что
+              должны сразу начать работу с графическим интерфейсом. Они не понимают важнейшего принципа: ввод/вывод не
+              важен.
+            </p>
+            <cite>— Р. Мартин</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+    <section class="ad">
+      <div class="ad__container container">
+        <h2 class="visually-hidden">Реклама</h2>
+        <figure>
+          <div class="ad__link-block">
+            <p>Реклама на <a href="http://blabla.com/">blabla.com</a></p>
+            <a class="ad__link" href="http://blabla.com/">
+              <picture>
+                <source media="(min-width: 768px)" srcset="img/ad__books.jpg">
+                <img src="img/ad__books-mob.jpg" alt="Реклама">
+              </picture>
+            </a>
+          </div>
+        </figure>
+      </div>
+    </section>
+    <section class="conclusion">
+      <div class="conclusion__container container">
+        <h2>Заключение</h2>
+        <p>Синхрония осознаёт сюжетный верлибр. Мифопорождающее текстовое устройство диссонирует лирический субъект.
+          Абстрактное высказывание пространственно просветляет деструктивный символ. Ямб, несмотря на то, что все эти
+          характерологические черты отсылают не к единому образу нарратора, интегрирует мифопоэтический хронотоп.
+          Действительно, ударение приводит палимпсест. Контрапункт приводит ритм.</p>
+      </div>
+    </section>
+    <section class="comment">
+      <h2 class="visually-hidden">Комментарий</h2>
+      <div class="comment__container container">
+        <form action="#" class="comment__form">
+          <fieldset class="comment__rating rating">
+            <legend>Оцените статью</legend>
+            <div class="rating-wrapper">
+              <input class="rating-star" type="radio" name="rating" value="1" aria-label="Ужасно">
+              <input class="rating-star" type="radio" name="rating" value="2" aria-label="Плохо">
+              <input class="rating-star" type="radio" name="rating" value="3" aria-label="Средне">
+              <input class="rating-star" type="radio" name="rating" value="4" aria-label="Отлично">
+              <input class="rating-star" type="radio" name="rating" value="5" aria-label="Супер">
+            </div>
+          </fieldset>
+          <fieldset class="comment__form-block form">
+            <legend>Добавить комментарий к книге</legend>
+            <div class="form__wrapper">
+              <div class="form__input-item">
+                <input class="form__input form__input--name" id="form__input-name" type="text" placeholder=" ">
+                <label for="form__input-name">Имя</label>
+              </div>
+              <div class="form__input-item">
+                <input class="form__input form__input--mail" id="form__input-mail" type="text" placeholder=" ">
+                <label for="form__input-mail">E-mail</label>
+              </div>
+              <select class="visually-hidden form__select" name="form__book-select" id="form__book-select">
+                <option value="JavaScript ниндзя">JavaScript ниндзя</option>
+                <option value="Pragmatic Guide to JavaScript">Pragmatic Guide to JavaScript</option>
+                <option value="Pro JavaScript Techniques">Pro JavaScript Techniques</option>
+                <option value="Выразительный JavaScript">Выразительный JavaScript</option>
+              </select>
+              <div class="form__custom-select custom-select ">
+                <p class="custom-select__active custom-select__active--closed">Выберите книгу</p>
+                <ul class="custom-select__list custom-select__list--closed" tabindex="0">
+                  <li class="custom-select__item" data-value="JavaScript ниндзя">JavaScript ниндзя</li>
+                  <li class="custom-select__item" data-value="Pragmatic Guide to JavaScript">Pragmatic Guide to
+                    JavaScript</li>
+                  <li class="custom-select__item" data-value="Pro JavaScript Techniques">Pro JavaScript Techniques</li>
+                  <li class="custom-select__item" data-value="Выразительный JavaScript">Выразительный JavaScript</li>
+                </ul>
+              </div>
+              <div class="form__input-item form__input-item--textarea">
+                <textarea class="form__input form__input--textarea" id="form__input-teaxtarea" rows="5" placeholder=" "></textarea>
+                <label for="form__input-teaxtarea">Ваш отзыв</label>
+              </div>
+              <button type="submit" class="form__button button">Отправить</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+    <section class="similar">
+      <div class="similar__container container">
+        <h2>Похожие посты</h2>
+        <div class="similar__slider-block">
+          <a href="#" class="similar__slider-item">
+            <picture>
+              <source media="(min-width: 768px)" srcset="img/react-book.jpg">
+                <img src="img/react-book-mob.jpg" alt="Обложка книги React">
+            </picture>
+            <p>События жизненного цикла ReactJS</p>
+          </a>
+          <a href="#" class="similar__slider-item">
+            <picture>
+              <source media="(min-width: 768px)" srcset="img/grids-book.jpg">
+                <img src="img/grids-book-mob.jpg" alt="Обложка книги Grids">
+            </picture>
+            <p>CSS Grids. Полное руководство</p>
+          </a>
+          <a href="#" class="similar__slider-item">
+            <picture>
+              <source media="(min-width: 768px)" srcset="img/js-book.jpg">
+                <img src="img/js-book-mob.jpg" alt="Обложка книги про JS">
+            </picture>
+            <p>Асинхронность в JavaScript</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/slick.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
